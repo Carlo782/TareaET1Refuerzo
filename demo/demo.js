@@ -1,5 +1,5 @@
 const cars=require('./cars.json');
-let aux=0;
+let aux=0,auxLux=0;
 const autoMayor2010=[];
 
 for (let index = 0; index < cars.length; index++) {
@@ -7,14 +7,17 @@ for (let index = 0; index < cars.length; index++) {
             aux++
             autoMayor2010.push(cars[index])
         }
+        
+        if (cars[index].brand === "Jaguar" || cars[index].brand=== "Aston Martin"){
+            cars[index].LuxuryTax=true;
+            auxLux++
+        }
 }
 console.log(aux);
 
-
-
-
-//generarImprimirArrayStringMarcaModeloAnio(autoMayor2010)
-
+calcularCantadidaAutosColorRojo();
+generarImprimirArrayStringMarcaModeloAnio(autoMayor2010)
+console.log(auxLux)
 
 function calcularCantadidaAutosColorRojo(){
     let aux=0;
@@ -30,8 +33,10 @@ function generarImprimirArrayStringMarcaModeloAnio(arregloAuto2010){
    const autosOrdenados=[]
 
  arregloAuto2010.forEach(auto => {
-    autosOrdenados.push(`${auto.brand} - ${auto.model} ${auto.}`)
+    autosOrdenados.push(`${auto.brand} - ${auto.model} ${auto.year}`)
  });
 
  console.log(autosOrdenados);
 }
+
+
