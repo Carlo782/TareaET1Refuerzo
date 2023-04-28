@@ -1,23 +1,42 @@
 const cars=require('./cars.json');
-let aux=0,auxLux=0;
 const autoMayor2010=[];
 
-for (let index = 0; index < cars.length; index++) {
-        if (cars[index].year>2010) {
-            aux++
-            autoMayor2010.push(cars[index])
-        }
-        
-        if (cars[index].brand === "Jaguar" || cars[index].brand=== "Aston Martin"){
-            cars[index].LuxuryTax=true;
-            auxLux++
-        }
-}
-console.log(aux);
+
+
+calcularYGuardarAutosMayores2010(autoMayor2010)
 
 calcularCantadidaAutosColorRojo();
+
 generarImprimirArrayStringMarcaModeloAnio(autoMayor2010)
-console.log(auxLux)
+
+AgregarLuxTaxYImprimir(cars)
+
+mostrarCochesDeUnAño(cars,2011)
+
+
+function calcularYGuardarAutosMayores2010(arregloAutomayor2010){
+    let aux=0;
+
+    for (let index = 0; index < cars.length; index++) {
+        if (cars[index].year>2010) {
+            aux++
+            arregloAutomayor2010.push(cars[index])
+        }
+
+}
+console.log(aux)
+}
+
+function AgregarLuxTaxYImprimir(autitos){
+    autitos.forEach(auto => {
+        if (auto.brand === "Jaguar" || auto.brand === "Aston Martin"){
+            auto.LuxuryTax=true;
+        }
+    });
+
+    let luxuryTaxTrue= cars.filter(auto => auto.LuxuryTax===true)
+    console.log(luxuryTaxTrue.length)
+}
 
 function calcularCantadidaAutosColorRojo(){
     let aux=0;
@@ -38,5 +57,14 @@ function generarImprimirArrayStringMarcaModeloAnio(arregloAuto2010){
 
  console.log(autosOrdenados);
 }
+
+function mostrarCochesDeUnAño(autitos,anio){
+    
+    let autosDeUnAnioEspecifico = autitos.filter(auto => auto.year===anio)
+    autosDeUnAnioEspecifico.forEach(autoGuardado => {
+        console.log(`${autoGuardado.model} - ${autoGuardado.year}`)
+    });
+}
+
 
 
