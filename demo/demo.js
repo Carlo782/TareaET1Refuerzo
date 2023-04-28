@@ -1,8 +1,6 @@
 const cars=require('./cars.json');
 const autoMayor2010=[];
 
-
-
 calcularYGuardarAutosMayores2010(autoMayor2010)
 
 calcularCantadidaAutosColorRojo();
@@ -12,6 +10,8 @@ generarImprimirArrayStringMarcaModeloAnio(autoMayor2010)
 AgregarLuxTaxYImprimir(cars)
 
 mostrarCochesDeUnAño(cars,2011)
+
+mostrarCochesDeUnAño(cars,2012)
 
 
 function calcularYGuardarAutosMayores2010(arregloAutomayor2010){
@@ -65,6 +65,5 @@ function mostrarCochesDeUnAño(autitos,anio){
         console.log(`${autoGuardado.model} - ${autoGuardado.year}`)
     });
 }
-
 
 
